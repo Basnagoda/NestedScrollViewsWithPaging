@@ -16,9 +16,9 @@
 		42CC5DBF25973F23005B1DDF /* NestedScrollViewsWithPagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CC5DBE25973F23005B1DDF /* NestedScrollViewsWithPagingTests.swift */; };
 		42CC5DCA25973F23005B1DDF /* NestedScrollViewsWithPagingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CC5DC925973F23005B1DDF /* NestedScrollViewsWithPagingUITests.swift */; };
 		42CC5DDE25974173005B1DDF /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CC5DDD25974173005B1DDF /* PageScrollView.swift */; };
-		42CC5E0125977C51005B1DDF /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42CC5DFE25977C51005B1DDF /* dog.jpg */; };
-		42CC5E0225977C51005B1DDF /* lion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42CC5DFF25977C51005B1DDF /* lion.jpg */; };
-		42CC5E0325977C51005B1DDF /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42CC5E0025977C51005B1DDF /* cat.jpg */; };
+		42CC5E112597A310005B1DDF /* lion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42CC5E102597A310005B1DDF /* lion.jpg */; };
+		42CC5E162597A31C005B1DDF /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42CC5E152597A31C005B1DDF /* dog.jpg */; };
+		42CC5E1B2597A323005B1DDF /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42CC5E1A2597A323005B1DDF /* cat.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +54,9 @@
 		42CC5DC925973F23005B1DDF /* NestedScrollViewsWithPagingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedScrollViewsWithPagingUITests.swift; sourceTree = "<group>"; };
 		42CC5DCB25973F23005B1DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42CC5DDD25974173005B1DDF /* PageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
-		42CC5DFE25977C51005B1DDF /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dog.jpg; path = ../../../../Downloads/dog.jpg; sourceTree = "<group>"; };
-		42CC5DFF25977C51005B1DDF /* lion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lion.jpg; path = ../../../../Downloads/lion.jpg; sourceTree = "<group>"; };
-		42CC5E0025977C51005B1DDF /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cat.jpg; path = ../../../../Downloads/cat.jpg; sourceTree = "<group>"; };
+		42CC5E102597A310005B1DDF /* lion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lion.jpg; sourceTree = "<group>"; };
+		42CC5E152597A31C005B1DDF /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog.jpg; sourceTree = "<group>"; };
+		42CC5E1A2597A323005B1DDF /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +107,9 @@
 		42CC5DA625973F1F005B1DDF /* NestedScrollViewsWithPaging */ = {
 			isa = PBXGroup;
 			children = (
-				42CC5E0025977C51005B1DDF /* cat.jpg */,
-				42CC5DFE25977C51005B1DDF /* dog.jpg */,
-				42CC5DFF25977C51005B1DDF /* lion.jpg */,
+				42CC5E1A2597A323005B1DDF /* cat.jpg */,
+				42CC5E152597A31C005B1DDF /* dog.jpg */,
+				42CC5E102597A310005B1DDF /* lion.jpg */,
 				42CC5DA725973F1F005B1DDF /* AppDelegate.swift */,
 				42CC5DA925973F1F005B1DDF /* SceneDelegate.swift */,
 				42CC5DAB25973F1F005B1DDF /* ViewController.swift */,
@@ -243,9 +243,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42CC5E0125977C51005B1DDF /* dog.jpg in Resources */,
-				42CC5E0225977C51005B1DDF /* lion.jpg in Resources */,
-				42CC5E0325977C51005B1DDF /* cat.jpg in Resources */,
+				42CC5E162597A31C005B1DDF /* dog.jpg in Resources */,
+				42CC5E112597A310005B1DDF /* lion.jpg in Resources */,
+				42CC5E1B2597A323005B1DDF /* cat.jpg in Resources */,
 				42CC5DB425973F22005B1DDF /* LaunchScreen.storyboard in Resources */,
 				42CC5DB125973F22005B1DDF /* Assets.xcassets in Resources */,
 				42CC5DAF25973F1F005B1DDF /* Main.storyboard in Resources */,

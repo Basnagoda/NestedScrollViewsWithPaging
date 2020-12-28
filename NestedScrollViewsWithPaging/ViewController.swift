@@ -20,9 +20,15 @@ class ViewController: UIViewController {
         setupPagingScrollView()
         self.view.bringSubviewToFront(self.toolBarView)
         addPages()
+
+        
+        //panGestureRecognizer of the outer scroll view requires panGestureRecognizers of the outer scrollViews to fail.
+        for (_, scrollView) in pagingStackView.arrangedSubviews.enumerated() {
+            guard let scrollView = scrollView as? PageScrollView else { return }
+
+             pagingScrollView.panGestureRecognizer.require(toFail: scrollView.panGestureRecognizer)
+        }
     }
-    
-    
     
     func setupToolBar() {
         toolBarView.backgroundColor = .red
@@ -40,7 +46,7 @@ class ViewController: UIViewController {
     func setupPagingScrollView(){
         pagingScrollView.isPagingEnabled = true
         pagingScrollView.translatesAutoresizingMaskIntoConstraints = false
-        pagingScrollView.isScrollEnabled = true
+        pagingScrollView.isScrollEnabled = true // TRUE
         pagingScrollView.pinchGestureRecognizer?.isEnabled = false
         pagingScrollView.panGestureRecognizer.minimumNumberOfTouches = 2
         pagingScrollView.panGestureRecognizer.maximumNumberOfTouches = 2
@@ -126,8 +132,51 @@ class ViewController: UIViewController {
                 pageScrollView.heightAnchor.constraint(equalTo: pagingScrollView.heightAnchor, constant: -40),
                 pageScrollView.widthAnchor.constraint(equalTo: pagingScrollView.widthAnchor)
             ])
+            
+            // add swipe gestures
+            let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeMade(_:)))
+            swipeUpGesture.direction = .up
+            swipeUpGesture.numberOfTouchesRequired = 2
+            swipeUpGesture.delegate = pageScrollView
+            pageScrollView.addGestureRecognizer(swipeUpGesture)
+            
+            let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeMade(_:)))
+            swipeDownGesture.direction = .down
+            swipeDownGesture.numberOfTouchesRequired = 2
+            swipeDownGesture.delegate = pageScrollView
+            pageScrollView.addGestureRecognizer(swipeDownGesture)
         }
     }
+    
+    @objc func swipeMade(_ sender: UISwipeGestureRecognizer) {
+        guard let pageScrollView = sender.view as? PageScrollView else { return }
+        
+        let scrollPosition = pageScrollView.getContentScrollPosition()
+        
+        // if scrollView is at the bottom and swipe direction is up,then disable scrolling
+        if scrollPosition == .bottom && sender.direction == .up {
+            print("scrollView is at the bottom and swipe direction is up,so disable scrolling")
+            pageScrollView.isScrollEnabled = false
+            pagingScrollView.isScrollEnabled = true
+        }
+        
+        // else if scrollView is at the top and swipe direction is down,then disable scrolling
+        else if scrollPosition == .top && sender.direction == .down {
+            print("scrollView is at the top and swipe direction is down,so disable scrolling")
+            pageScrollView.isScrollEnabled = false
+        }
+        
+        // else enable scrolling
+        else if scrollPosition == .none {
+            print("scroll position is none. Disable scrolling")
+            pageScrollView.isScrollEnabled = false
+        }
+        
+        else {
+            print("ENABLE scrollView")
+            pageScrollView.isScrollEnabled = true
+        }
+     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -166,6 +215,13 @@ extension ViewController: UIScrollViewDelegate {
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         if let scrollView = scrollView as? PageScrollView {
             centerScrollView(scrollView)
+            
+//            if (scrollView.contentSize.height > scrollView.frame.size.height) {
+//                scrollView.isScrollEnabled = true
+//            }
+//            else {
+//                scrollView.isScrollEnabled = false
+//            }
         }
 
     }
@@ -178,6 +234,8 @@ extension ViewController: UIScrollViewDelegate {
         self.view.layoutIfNeeded()
     }
 }
+
+
 
 extension UIScrollView {
     func centerContent(){
